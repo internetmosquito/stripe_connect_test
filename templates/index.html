@@ -1,0 +1,8 @@
+{% extends "_base.html" %}
+{% block content %}
+    <h2>First, you need to authorize our app to charge on behalf of a Stripe user</h2>
+    <h2>A new Stripe user will be created, otherwise use an existing User</h2>
+    <a href="/authorize"><img src="{{ url_for('static', filename='img/blue-on-light.png') }}" /></a>
+    <br>
+    <br>
+{% endblock %}

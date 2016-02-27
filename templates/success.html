@@ -1,0 +1,7 @@
+{% extends "_base.html" %}
+{% block content %}
+    <div class="alert alert-success fade in">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong>Success!</strong> You have successfully charged a payment of {{ payment_amount }} € on behalf of user {{ connected_account_id }} to customer with email {{ connected_account_email }}
+    </div>
+{% endblock %}

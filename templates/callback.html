@@ -1,0 +1,17 @@
+{% extends "_base.html" %}
+{% block content %}
+    <h3>This is the access token obtained after authorization {{ token }}</h3>
+    <h3>Now, Let's send a test payment to the connected account using Stripe embedded form</h3>
+        <form action="/charge" class="form-inline" method="post">
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="{{ pk }}"
+                data-image="{{ url_for('static', filename='img/marketplace.png') }}"
+                data-name="Bakio Surf School"
+                data-description="Surf initiation course (3 days)"
+                data-currency="eur"
+                data-amount="10000"
+                data-locale="auto">
+            </script>
+         </form>
+
+{% endblock %}
