@@ -1,8 +1,27 @@
 {% extends "_base.html" %}
 {% block content %}
-    <h2>First, you need to authorize our app to charge on behalf of a Stripe user</h2>
-    <h2>A new Stripe user will be created, otherwise use an existing User</h2>
-    <a href="/authorize"><img src="{{ url_for('static', filename='img/blue-on-light.png') }}" /></a>
-    <br>
-    <br>
+
+    {% if auth is defined %}
+        <h2>Looks like user {{ user_id }} has already authorized the application, let's proceed with a test payment</h2>
+        <form action="/charge" class="form-inline" method="post">
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="{{ pk }}"
+                data-image="{{ url_for('static', filename='img/marketplace.png') }}"
+                data-name="Bakio Surf School"
+                data-description="Surf initiation course (3 days)"
+                data-currency="eur"
+                data-amount="10000"
+                data-locale="auto">
+            </script>
+        </form>
+        <br>
+        <br>
+    {% else %}
+        <h2>First, you need to authorize our app to charge on behalf of a Stripe user</h2>
+        <h2>A new Stripe user will be created, otherwise use an existing User</h2>
+        <a href="/authorize"><img src="{{ url_for('static', filename='img/blue-on-light.png') }}" /></a>
+        <br>
+        <br>
+    {% endif %}
+
 {% endblock %}

@@ -51,3 +51,6 @@ docs/_build/
 
 # PyCharm
 .idea/
+
+# DB files
+*.db
